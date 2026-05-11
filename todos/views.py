@@ -59,5 +59,3 @@ def todo_detail(request, pk):
         
         
          
-
-

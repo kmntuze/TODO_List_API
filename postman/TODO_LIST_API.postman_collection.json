@@ -7,7 +7,7 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "http://127.0.0.1:8000"
+      "value": "https://todo-list-api-4gca.onrender.com"
     },
     {
       "key": "todo_id",
@@ -108,7 +108,7 @@
       "name": "Missing TODO",
       "request": {
         "method": "GET",
-        "url": "{{base_url}}/api/todos/999/"
+        "url": "{{base_url}}/api/todos/2888/"
       }
     }
   ]

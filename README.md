@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This is a simple TODO List REST API built with Python Django and Django REST Framework.
+This is a simple TODO List API built with Python Django and Django REST Framework.
 
-The API allows a user to create, view, list, update, partially update, and delete TODO items and it focuses on basic CRUD functionality, validation, logging, unit tests, Docker, and a Postman collection for testing.
+The API allows a user to create, view, list, update, partially update, and delete TODO items and focuses on basic CRUD functionality, validation, logging, unit tests, Docker support, and a Postman collection for testing.
 
 ## Technology Used
 
@@ -20,25 +20,25 @@ The API allows a user to create, view, list, update, partially update, and delet
 
 ```text
 TODO_List_API/
-├── manage.py
-├── requirements.txt
-├── Dockerfile
-├── docker-compose.yml
-├── README.md
-├── postman/
-│   └── TODO_LIST_API.postman_collection.json
-├── todo_api/
-│   ├── settings.py
-│   ├── urls.py
-│   ├── asgi.py
-│   └── wsgi.py
-└── todos/
-    ├── models.py
-    ├── serializers.py
-    ├── views.py
-    ├── urls.py
-    ├── tests.py
-    └── migrations/
+|-- manage.py
+|-- requirements.txt
+|-- Dockerfile
+|-- docker-compose.yml
+|-- README.md
+|-- postman/
+|   |-- TODO_LIST_API.postman_collection.json
+|-- todo_api/
+|   |-- settings.py
+|   |-- urls.py
+|   |-- asgi.py
+|   |-- wsgi.py
+|-- todos/
+|   |-- models.py
+|   |-- serializers.py
+|   |-- views.py
+|   |-- urls.py
+|   |-- tests.py
+|   |-- migrations/
 ```
 
 ## API Structure
@@ -62,6 +62,12 @@ Local base URL:
 
 ```text
 http://127.0.0.1:8000
+```
+
+Deployed base URL:
+
+```text
+https://todo-list-api-4gca.onrender.com
 ```
 
 | Method | Endpoint | Description |
@@ -117,7 +123,7 @@ Example invalid request:
 ### 1. Clone the repository
 
 ```bash
-git clone <your-github-repository-url>
+git clone https://github.com/kmntuze/TODO_List_API.git
 cd TODO_List_API
 ```
 
@@ -173,17 +179,7 @@ Run the tests with:
 python manage.py test
 ```
 
-The tests cover:
-
-- Creating a TODO item
-- Listing TODO items
-- Viewing a single TODO item
-- Updating a TODO item
-- Partially updating a TODO item
-- Deleting a TODO item
-- Checking validation for missing titles
-- Checking validation for blank titles
-- Returning `404 Not Found` when a TODO item does not exist
+The tests cover creating, listing, viewing, updating, partially updating, and deleting TODO items. They also cover validation for missing or blank titles and checking that a missing TODO item returns `404 Not Found`.
 
 ## How To Run With Docker
 
@@ -233,18 +229,23 @@ postman/TODO_LIST_API.postman_collection.json
 
 1. Open Postman.
 2. Click `Import`.
-3. Select the file:
-   ```text
-   postman/TODO_LIST_API.postman_collection.json
-   ```
+3. Select the file `postman/TODO_LIST_API.postman_collection.json`.
 4. Open the imported collection named `TODO List API`.
 5. Check the collection variables.
-6. Make sure `base_url` is set to:
-   ```text
-   http://127.0.0.1:8000
-   ```
-7. Start the Django server.
-8. Run the requests in this order:
+6. For local testing, set `base_url` to:
+
+```text
+http://127.0.0.1:8000
+```
+
+7. For deployed testing, set `base_url` to:
+
+```text
+https://todo-list-api-4gca.onrender.com
+```
+
+8. Start the Django server if testing locally.
+9. Run the requests in this order:
    - Create TODO
    - List TODOs
    - View TODO
@@ -258,34 +259,25 @@ The collection also has a `todo_id` variable. After creating a TODO item, update
 
 ## Logging
 
-The project includes logging for important API actions, such as:
-
-- Creating a TODO item
-- Updating a TODO item
-- Partially updating a TODO item
-- Deleting a TODO item
-- Looking for a TODO item that does not exist
+The project includes logging for important API actions, such as creating, updating, partially updating, deleting, and looking for a TODO item that does not exist.
 
 Logs are shown in the console while the server is running.
 
 ## Deployment
 
-This project is prepared to be deployed online for review.
+This project is deployed on Render.
 
-After deployment, the public API URL should be added here:
+Public API URL:
 
 ```text
-https://your-render-app-name.onrender.com/api/todos/
+https://todo-list-api-4gca.onrender.com/api/todos/
 ```
 
-## Submitted Files
+Root URL:
 
-The submission includes:
+```text
+https://todo-list-api-4gca.onrender.com/
+```
 
-- Public GitHub repository
-- Working deployed API URL
-- Postman collection
-- Dockerfile
-- Docker Compose file
-- README file
-- Unit tests
+The root URL redirects to the TODO API endpoint.
+
