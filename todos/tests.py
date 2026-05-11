@@ -2,9 +2,7 @@
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-
 from .models import Todo
-
 
 class TodoAPITests(APITestCase):
     def setUp(self):

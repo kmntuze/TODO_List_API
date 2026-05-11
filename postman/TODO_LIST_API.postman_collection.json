@@ -16,13 +16,6 @@
   ],
   "item": [
     {
-      "name": "List TODOs",
-      "request": {
-        "method": "GET",
-        "url": "{{base_url}}/api/todos/"
-      }
-    },
-    {
       "name": "Create TODO",
       "request": {
         "method": "POST",
@@ -36,6 +29,13 @@
           "mode": "raw",
           "raw": "{\n  \"title\": \"Finish TODO API\",\n  \"description\": \"Test the create endpoint\",\n  \"is_completed\": false\n}"
         },
+        "url": "{{base_url}}/api/todos/"
+      }
+    },
+    {
+      "name": "List TODOs",
+      "request": {
+        "method": "GET",
         "url": "{{base_url}}/api/todos/"
       }
     },
@@ -100,6 +100,23 @@
         "body": {
           "mode": "raw",
           "raw": "{\n  \"title\": \"   \",\n  \"description\": \"This should fail\",\n  \"is_completed\": false\n}"
+        },
+        "url": "{{base_url}}/api/todos/"
+      }
+    },
+    {
+      "name": "Missing Title Validation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"description\": \"No title field at all\",\n  \"is_completed\": false\n}"
         },
         "url": "{{base_url}}/api/todos/"
       }

@@ -253,9 +253,10 @@ https://todo-list-api-4gca.onrender.com
    - Patch TODO
    - Delete TODO
    - Blank Title Validation
+   - Missing Title Validation
    - Missing TODO
 
-The collection also has a `todo_id` variable. After creating a TODO item, update `todo_id` with the ID returned by the API if needed.
+The collection uses a `todo_id` variable which is set to `1` by default. After running Create TODO, check the returned `id` in the response. If the returned ID is not `1`, update the `todo_id` collection variable with the correct ID before running View TODO, Update TODO, Patch TODO, and Delete TODO.
 
 ## Logging
 
