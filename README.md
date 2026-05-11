@@ -281,3 +281,12 @@ https://todo-list-api-4gca.onrender.com/
 
 The root URL redirects to the TODO API endpoint.
 
+## The project includes:
+
+- Public GitHub repository
+- Working deployed API URL
+- Postman collection
+- Dockerfile
+- Docker Compose file
+- README file
+- Unit tests
