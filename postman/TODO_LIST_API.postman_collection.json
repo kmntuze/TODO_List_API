@@ -1,0 +1,115 @@
+{
+  "info": {
+    "name": "TODO List API",
+    "description": "Postman collection for testing the TODO List API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "todo_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "List TODOs",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/todos/"
+      }
+    },
+    {
+      "name": "Create TODO",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Finish TODO API\",\n  \"description\": \"Test the create endpoint\",\n  \"is_completed\": false\n}"
+        },
+        "url": "{{base_url}}/api/todos/"
+      }
+    },
+    {
+      "name": "View TODO",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/todos/{{todo_id}}/"
+      }
+    },
+    {
+      "name": "Update TODO",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated TODO\",\n  \"description\": \"Updated using PUT\",\n  \"is_completed\": true\n}"
+        },
+        "url": "{{base_url}}/api/todos/{{todo_id}}/"
+      }
+    },
+    {
+      "name": "Patch TODO",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"is_completed\": true\n}"
+        },
+        "url": "{{base_url}}/api/todos/{{todo_id}}/"
+      }
+    },
+    {
+      "name": "Delete TODO",
+      "request": {
+        "method": "DELETE",
+        "url": "{{base_url}}/api/todos/{{todo_id}}/"
+      }
+    },
+    {
+      "name": "Blank Title Validation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"   \",\n  \"description\": \"This should fail\",\n  \"is_completed\": false\n}"
+        },
+        "url": "{{base_url}}/api/todos/"
+      }
+    },
+    {
+      "name": "Missing TODO",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/api/todos/999/"
+      }
+    }
+  ]
+}
