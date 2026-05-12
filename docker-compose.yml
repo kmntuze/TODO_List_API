@@ -6,6 +6,6 @@ services:
     volumes:
       - .:/app
     environment:
-      - DEBUG= "True"
-      - SECRET_KEY= "django-insecure-local-dev-key-only"
+      - DEBUG = "True"
+      - SECRET_KEY = "django-insecure-local-dev-key-only"
     command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
